@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.cjs
+.pnpm-store/
+
+# Next.js
+.next/
+out/
+# (Keep next-env.d.ts committed – Next.js needs it)
+
+# Build / tooling
+dist/
+coverage/
+.turbo/
+.eslintcache
+.stylelintcache
+
+# Env & secrets
+.env
+.env.local
+.env.*.local
+*.env
+*.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Vercel / Netlify
+.vercel/
+.netlify/
+
+# Misc
+*.swp
