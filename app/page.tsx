@@ -430,7 +430,16 @@ export default function Home() {
       {/* Abacus Program Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="-mt-10 grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="relative">
+              <Image
+                src="/abacus.jpg"
+                alt="Student reading and learning"
+                width={600}
+                height={400}
+                className="rounded-lg"
+              />
+            </div>
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-orange-600">
                 The Positive Mind Abacus Program
@@ -452,15 +461,7 @@ export default function Home() {
                 EXPLORE THE ABACUS PROGRAM
               </a>
             </div>
-            <div className="relative">
-              <Image
-                src="/abacus.jpg"
-                alt="Student reading and learning"
-                width={600}
-                height={400}
-                className="rounded-lg"
-              />
-            </div>
+
           </div>
         </div>
       </section>
