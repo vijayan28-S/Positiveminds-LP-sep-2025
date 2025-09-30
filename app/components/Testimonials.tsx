@@ -130,7 +130,7 @@ export default function Testimonials() {
     <section id="testimonials" className="py-20 px-20 bg-white font-sans">
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className=" -mt-20 text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+          <h2 className=" -mt-20 text-3xl md:text-4xl font-bold mb-4 text-[#22abe0]">
             What Parents & Educators Say
           </h2>
           <p className="text-gray-600 text-lg">

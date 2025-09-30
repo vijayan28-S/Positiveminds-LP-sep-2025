@@ -68,7 +68,13 @@ export default function Contact() {
   return (
     <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2   gap-12 items-start">
+        <h2 className=" -mt-20 text-3xl md:text-4xl text-center font-bold mb-4 text-[#22abe0]">
+            Get in Touch
+          </h2>
+            <p className="text-gray-600 text-lg text-center">
+            Have questions about our programs? Contact us to learn more or schedule a free assessment.
+          </p>
+        <div className="mt-10 grid lg:grid-cols-2   gap-12 items-start">
 
           {/* Left Column: Map */}
           <div className="w-full h-[400px] rounded-xl overflow-hidden order-2 shadow-lg">

@@ -468,7 +468,7 @@ export default function Home() {
       {/* Our Programs Section */}
       <section id="programs" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
+          <h2 className="-mt-12 text-4xl font-bold text-center text-[#22abe0] mb-16">
             Our Programs
           </h2>
 
@@ -615,7 +615,7 @@ export default function Home() {
       {/* Benefits Section */}
 <section id="benefits" className="py-20 bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
+    <h2 className="-mt-12 text-4xl font-bold text-center text-[#22abe0] mb-16">
       HOW POSITIVE MIND CAN BENEFIT YOUR CHILD
     </h2>
 
@@ -687,341 +687,87 @@ export default function Home() {
       
 
       {/* Gallery Section */}
-      <section  className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
-            See Our Students in Action
-          </h2>
+<section className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1  className="-mt-12 text-4xl font-bold text-center text-[#22abe0] mb-16">GALLERY</h1>
+    <h2 className=" -mt-10 text-4xl font-bold text-center text-gray-800 mb-16">
+      See Our Students in Action
+    </h2>
 
-          {/* Image Gallery */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Photo Gallery
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <div
-                className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                onClick={() =>
-                  setSelectedImage(
-                    "/1.jpg"
-                  )
-                }
-              >
-                <Image
-                  src="/1.jpg"
-                  alt="Students learning math with abacus"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-lg font-semibold">Math Learning</span>
-                  </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    {/* Media Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Image 1 */}
+      <div
+        className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+        onClick={() => setSelectedImage("/1.jpg")}
+      >
+        <Image
+          src="/1.jpg"
+          alt="Students learning math with abacus"
+          width={400}
+          height={300}
+          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
 
-              <div
-                className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                onClick={() =>
-                  setSelectedImage(
-                    "/2.jpg"
-                  )
-                }
-              >
-                <Image
-                  src="/2.jpg"
-                  alt="Student writing math problems"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-lg font-semibold">
-                      Problem Solving
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {/* Image 2 */}
+      <div
+        className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+        onClick={() => setSelectedImage("/2.jpg")}
+      >
+        <Image
+          src="/2.jpg"
+          alt="Problem solving"
+          width={400}
+          height={300}
+          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
 
-              <div
-                className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                onClick={() =>
-                  setSelectedImage(
-                    "/3.jpg"
-                  )
-                }
-              >
-                <Image
-                  src="/3.jpg"
-                  alt="Student reading and learning"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-lg font-semibold">Reading Time</span>
-                  </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {/* Image 3 */}
+      <div
+        className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
+        onClick={() => setSelectedImage("/3.jpg")}
+      >
+        <Image
+          src="/3.jpg"
+          alt="Reading time"
+          width={400}
+          height={300}
+          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
 
-              <div
-                className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                onClick={() =>
-                  setSelectedImage(
-                    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  )
-                }
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Students in classroom"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-lg font-semibold">
-                      Classroom Learning
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {/* Video 1 */}
+      <div className="relative rounded-lg overflow-hidden shadow-lg">
+        <video
+          controls
+          className="w-full h-64 object-cover"
+          src="/video-1.mp4"
+        ></video>
+      </div>
 
-              <div
-                className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                onClick={() =>
-                  setSelectedImage(
-                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  )
-                }
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Student with tablet"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-lg font-semibold">
-                      Digital Learning
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {/* Video 2 */}
+      <div className="relative rounded-lg overflow-hidden shadow-lg">
+        <video
+          controls
+          className="w-full h-64 object-cover"
+          src="/video-2.mp4"
+        ></video>
+      </div>
 
-              <div
-                className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                onClick={() =>
-                  setSelectedImage(
-                    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  )
-                }
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Students celebrating success"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-lg font-semibold">
-                      Success Celebration
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      {/* Video 3 */}
+      <div className="relative rounded-lg overflow-hidden shadow-lg">
+        <video
+          controls
+          className="w-full h-64 object-cover"
+          src="/video-3.mp4"
+        ></video>
+      </div>
+    </div>
 
-              <div
-                className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                onClick={() =>
-                  setSelectedImage(
-                    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  )
-                }
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Teacher helping student"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-lg font-semibold">
-                      One-on-One Help
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div
-                className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
-                onClick={() =>
-                  setSelectedImage(
-                    "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  )
-                }
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Students working together"
-                  width={300}
-                  height={200}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                  <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-lg font-semibold">Group Study</span>
-                  </div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           {/* Video Gallery */}
           {/* <div>
