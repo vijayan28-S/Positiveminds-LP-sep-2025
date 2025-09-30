@@ -1,10 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
+import Contact from "./components/Contact"
+import { MapPin, Phone, Mail } from "lucide-react";
+import {  Facebook, Instagram } from "lucide-react";
+import AssessmentCTA from "./components/AssessmentCTA";
+
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const [open, setOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -63,7 +72,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-blue-500">
+                <h1 className="text-2xl font-bold text-[#22abe0]">
                   Positive Minds Academy
                 </h1>
                 <p className="text-sm text-gray-600">
@@ -74,22 +83,55 @@ export default function Home() {
 
             {/* Navigation Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              <div className="flex items-center space-x-1 cursor-pointer">
-                <span className="text-gray-800 font-medium">Programs</span>
-                <svg
-                  className="w-4 h-4 text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+          {/* Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setOpen(!open)}
+              className="flex items-center space-x-1 cursor-pointer text-gray-800 font-medium hover:text-primary focus:outline-none"
+            >
+              <span>Programs</span>
+              <svg
+                className={`w-4 h-4 text-gray-600 transform transition-transform ${
+                  open ? "rotate-180" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {/* Dropdown Menu */}
+            {open && (
+              <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+
+                <a
+                  href="/#programs"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+                  Elementary Math
+                </a>
+                <a
+                  href="/#programs"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  Middle School Math
+                </a>
+                <a
+                  href="/#programs"
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  Abacus Math
+                </a>
               </div>
+            )}
+          </div>
               <a
                 href="#benefits"
                 className="text-gray-800 font-medium cursor-pointer hover:text-blue-600"
@@ -133,7 +175,7 @@ export default function Home() {
               {/* CTA Button */}
               <button
                 onClick={() => setShowForm(true)}
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
+                className="bg-[#22abe0] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
               >
                 Book a Free Trial Class
               </button>
@@ -143,7 +185,7 @@ export default function Home() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-800 hover:text-blue-600"
+                className="text-gray-800 hover:text-[#22abe0]"
               >
                 <svg
                   className="w-6 h-6"
@@ -229,12 +271,11 @@ export default function Home() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Build Confidence in School with{" "}
-                  <span className="text-blue-600">Positive Mind Academy</span>
+                  Unlock Your Child’s{" "}
+                  <span className="text-[#22abe0]">Full Math Potential!</span>
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-700 font-medium">
-                  Expert Math & Abacus Programs for Elementary & Middle School
-                  Students
+                <p className="text-xl md:text-xl text-gray-700 font-medium">
+                  Fun, interactive, and results-driven-help your child stay ahead, boost confidence, and develop lifelong math skills!
                 </p>
               </div>
 
@@ -266,19 +307,27 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <div className="pt-4">
-                <button
-                  onClick={() => setShowForm(true)}
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg"
-                >
-                  Book a Free Trial Class
-                </button>
-              </div>
-            </div>
+{/* CTA Buttons */}
+<div className="pt-4 flex flex-col sm:flex-row sm:space-x-3 space-y-3 sm:space-y-0 items-center">
+  <button
+    onClick={() => setShowForm(true)}
+    className="w-full sm:w-auto bg-[#22abe0] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg"
+  >
+    Book a Free Trial Class
+  </button>
+  <Link
+    href="#programs"
+    className="w-full sm:w-auto bg-[#22abe0] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg text-center"
+  >
+    Explore Programs
+  </Link>
+</div>
+</div>
+
             <div className="relative">
               <Image
-                src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              src="/Positive-minds.png"
+                // src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                 alt="Students learning math with abacus in classroom"
                 width={600}
                 height={400}
@@ -286,8 +335,8 @@ export default function Home() {
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-lg">
                 <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-blue-600 font-bold text-2xl">
+                  <div className="w-16 h-16 bg-blue-200 rounded-full flex items-center justify-center">
+                    <span className="text-[#22abe0] font-bold text-2xl">
                       15+
                     </span>
                   </div>
@@ -305,24 +354,30 @@ export default function Home() {
       </section>
 
       {/* Call to Action Banner - Below hero section */}
-      <section className="grid grid-cols-2 w-full max-w-[1200px] mx-auto h-28">
-        <div className="bg-blue-600 py-4 px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">
-            Save up to $100!
-          </h2>
-          <p className="text-white text-sm md:text-base">
-            for a limited time only*
-          </p>
-        </div>
-        <button
-          onClick={() => setShowForm(true)}
-          className="bg-purple-800 py-4 px-4 text-center hover:bg-purple-900 transition-colors duration-200 cursor-pointer"
-        >
-          <h2 className="text-2xl md:text-3xl font-bold text-white">
-            ENROLL NOW
-          </h2>
-        </button>
-      </section>
+<section className="grid grid-cols-2 w-full max-w-[1300px] mx-auto h-[200px]">
+  {/* Left Box */}
+  <div className="bg-[#22abe0] flex items-center justify-center">
+    <div className="text-center">
+      <h2 className="text-2xl md:text-5xl font-bold text-white mb-1">
+        Save up to $100!
+      </h2>
+      <p className="text-white text-sm md:text-base">
+        for a limited time only*
+      </p>
+    </div>
+  </div>
+
+  {/* Right Box */}
+  <button
+    onClick={() => setShowForm(true)}
+    className="bg-purple-800 flex items-center justify-center hover:bg-purple-900 transition-colors duration-200 cursor-pointer"
+  >
+    <h2 className="text-2xl md:text-5xl font-bold text-white">
+      ENROLL NOW
+    </h2>
+  </button>
+</section>
+
 
       {/* Math Program Section */}
       <section className="py-20 bg-white">
@@ -330,7 +385,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <Image
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                src="/math.jpg"
                 alt="Student writing math problems"
                 width={600}
                 height={400}
@@ -399,7 +454,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <Image
-                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                src="/abacus.jpg"
                 alt="Student reading and learning"
                 width={600}
                 height={400}
@@ -433,22 +488,27 @@ export default function Home() {
                 </h4>
                 <ul className="space-y-3 text-gray-600 mb-6">
                   <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Basic operations mastery</span>
+                    <span className="text-blue-500">✓</span>
+                    <span>Number recognition and counting</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Number sense development</span>
+                    <span className="text-blue-500">✓</span>
+                    <span>Basic addition and subtraction</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Fractions & decimals</span>
+                    <span className="text-blue-500">✓</span>
+                    <span>Shape recognition and patterns</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Daily homework support</span>
+                    <span className="text-blue-500">✓</span>
+                    <span>Interactive learning with manipulatives</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-blue-500">✓</span>
+                    <span>Fun math games and activities</span>
                   </li>
                 </ul>
+
                 <button
                   onClick={() => setShowForm(true)}
                   className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
@@ -473,22 +533,28 @@ export default function Home() {
                 </h4>
                 <ul className="space-y-3 text-gray-600 mb-6">
                   <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Pre-algebra foundations</span>
+                    <span className="text-purple-500">✓</span>
+                    <span>Pre-algebra and algebra foundations</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Geometry concepts</span>
+                    <span className="text-purple-500">✓</span>
+                    <span>Geometry and measurement</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Problem-solving strategies</span>
+                    <span className="text-purple-500">✓</span>
+                    <span>Fractions, decimals, and percentages</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>High school readiness</span>
+                    <span className="text-purple-500">✓</span>
+                    <span>Word problem strategies</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-purple-500">✓</span>
+                    <span>Math competition preparation</span>
                   </li>
                 </ul>
+
+
                 <button
                   onClick={() => setShowForm(true)}
                   className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200"
@@ -511,24 +577,29 @@ export default function Home() {
                 <h4 className="text-xl font-bold text-gray-800 mb-4">
                   Mental Math Mastery
                 </h4>
-                <ul className="space-y-3 text-gray-600 mb-6">
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Traditional abacus techniques</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Mental calculation speed</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Focus & concentration</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="text-green-500">✓</span>
-                    <span>Competition preparation</span>
-                  </li>
-                </ul>
+               <ul className="space-y-3 text-gray-600 mb-6">
+              <li className="flex items-center space-x-2">
+                <span className="text-green-500">✓</span>
+                <span>Abacus operation techniques</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="text-green-500">✓</span>
+                <span>Mental calculation training</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="text-green-500">✓</span>
+                <span>Speed and accuracy development</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="text-green-500">✓</span>
+                <span>Concentration and focus exercises</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="text-green-500">✓</span>
+                <span>Regular skill assessments</span>
+              </li>
+            </ul>
+
                 <button
                   onClick={() => setShowForm(true)}
                   className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
@@ -542,60 +613,81 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
-            HOW POSITIVE MIND CAN BENEFIT YOUR CHILD
-          </h2>
+<section id="benefits" className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
+      HOW POSITIVE MIND CAN BENEFIT YOUR CHILD
+    </h2>
 
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl font-bold">100%</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Improve Study Skills and Grades
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Our students enhance their study habits, reduce homework
-                anxiety, and master math concepts, often studying above grade
-                level with our proven methodology.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl">💭</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Build Confidence and Independence
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                We empower students to learn independently, boosting their
-                confidence with each new challenge through personalized
-                instruction and positive reinforcement.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl">💡</span>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                Strengthen Critical Thinking
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Through daily practice and guidance, students develop
-                problem-solving skills and achieve mastery step by step,
-                building a strong foundation for future learning.
-              </p>
-            </div>
-          </div>
+    <div className="grid md:grid-cols-3 gap-12">
+      
+      {/* Benefit 1 */}
+      <div className="text-center">
+        <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
+          {/* Graduation Cap SVG */}
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               className="w-10 h-10 text-white" 
+               fill="currentColor" 
+               viewBox="0 0 24 24">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+            <path d="M11 12.08L3.12 8.09 2 8.66l9 4.91 9-4.91-1.12-.57L13 12.08v4.83l-2-.91v-3.92z" />
+          </svg>
         </div>
-      </section>
+        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          Improve Study Skills and Grades
+        </h3>
+        <p className="text-gray-700 leading-relaxed">
+          Our students enhance their study habits, reduce homework anxiety, and master math concepts, often studying above grade level with our proven methodology.
+        </p>
+      </div>
+
+      {/* Benefit 2 */}
+      <div className="text-center">
+        <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+          {/* Brain SVG */}
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               className="w-10 h-10 text-white" 
+               fill="currentColor" 
+               viewBox="0 0 24 24">
+            <path d="M9 2a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4zm6 0a4 4 0 0 0-4 4v10a4 4 0 0 0 8 0v-1a4 4 0 0 0 0-8V6a4 4 0 0 0-4-4z" />
+          </svg>
+        </div>
+        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          Build Confidence and Independence
+        </h3>
+        <p className="text-gray-700 leading-relaxed">
+          We empower students to learn independently, boosting their confidence with each new challenge through personalized instruction and positive reinforcement.
+        </p>
+      </div>
+
+      {/* Benefit 3 */}
+      <div className="text-center">
+        <div className="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
+          {/* Light Bulb SVG */}
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               className="w-10 h-10 text-white" 
+               fill="currentColor" 
+               viewBox="0 0 24 24">
+            <path d="M9 21h6v-1H9v1zm3-19a7 7 0 0 0-4 12.75V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.25A7 7 0 0 0 12 2z" />
+          </svg>
+        </div>
+        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          Strengthen Critical Thinking
+        </h3>
+        <p className="text-gray-700 leading-relaxed">
+          Through daily practice and guidance, students develop problem-solving skills and achieve mastery step by step, building a strong foundation for future learning.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      
 
       {/* Gallery Section */}
-      <section id="testimonials" className="py-20 bg-white">
+      <section  className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
             See Our Students in Action
@@ -611,12 +703,12 @@ export default function Home() {
                 className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
                 onClick={() =>
                   setSelectedImage(
-                    "https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    "/1.jpg"
                   )
                 }
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  src="/1.jpg"
                   alt="Students learning math with abacus"
                   width={300}
                   height={200}
@@ -650,12 +742,12 @@ export default function Home() {
                 className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
                 onClick={() =>
                   setSelectedImage(
-                    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    "/2.jpg"
                   )
                 }
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  src="/2.jpg"
                   alt="Student writing math problems"
                   width={300}
                   height={200}
@@ -691,12 +783,12 @@ export default function Home() {
                 className="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer"
                 onClick={() =>
                   setSelectedImage(
-                    "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    "/3.jpg"
                   )
                 }
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  src="/3.jpg"
                   alt="Student reading and learning"
                   width={300}
                   height={200}
@@ -932,13 +1024,13 @@ export default function Home() {
           </div>
 
           {/* Video Gallery */}
-          <div>
+          {/* <div>
             <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
               Video Gallery - Student Success Stories
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
               {/* YouTube Short 1 */}
-              <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              {/* <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative aspect-[9/16] bg-gradient-to-br from-red-500 to-red-600">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
@@ -965,10 +1057,10 @@ export default function Home() {
                     to mastering advanced concepts.
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* YouTube Short 2 */}
-              <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              {/* <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative aspect-[9/16] bg-gradient-to-br from-blue-500 to-blue-600">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
@@ -995,10 +1087,10 @@ export default function Home() {
                     learned through our abacus program.
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* YouTube Short 3 */}
-              <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              {/* <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative aspect-[9/16] bg-gradient-to-br from-green-500 to-green-600">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
@@ -1027,10 +1119,10 @@ export default function Home() {
                     excelling in high school math.
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Regular YouTube Video 1 */}
-              <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              {/* <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative aspect-video bg-gradient-to-br from-purple-500 to-purple-600">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
@@ -1057,10 +1149,10 @@ export default function Home() {
                     transformations at Positive Mind.
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Regular YouTube Video 2 */}
-              <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              {/* <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative aspect-video bg-gradient-to-br from-orange-500 to-orange-600">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
@@ -1087,10 +1179,10 @@ export default function Home() {
                     mental math abilities.
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Regular YouTube Video 3 */}
-              <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              {/* <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative aspect-video bg-gradient-to-br from-teal-500 to-teal-600">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
@@ -1119,12 +1211,16 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div> */}
           </div>
-        </div>
+
+        
       </section>
+      <Testimonials/>
+      <FAQ/>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-gray-50">
+      {/* <section id="faq" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">
             Frequently Asked Questions
@@ -1170,10 +1266,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About Our Center Section */}
-      <section className="py-20 bg-purple-100 relative overflow-hidden">
+      {/* <section className="py-20 bg-purple-100 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
@@ -1198,85 +1294,139 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <Contact />
+     {/* Free Assessment CTA Section */}
+<section className="bg-yellow-500 py-16">
+  <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+    
+    {/* Text */}
+    <h2 className="text-2xl md:text-5xl font-extrabold text-white text-center md:text-left">
+      Schedule Your Child&apos;s Free Assessment
+    </h2>
+
+    {/* Button */}
+    <button
+      onClick={() => setShowForm(true)}
+      className="bg-white text-[#2D245B] font-bold px-8 py-3 rounded-md shadow-md hover:bg-gray-100 transition"
+    >
+      BOOK NOW
+    </button>
+  </div>
+</section>
+
 
       {/* Footer */}
-      <footer className="bg-blue-900 text-white py-16">
+      <footer id="" className="bg-blue-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Column 1: Positive Mind Academy */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-900 font-bold text-xl">🧠</span>
-                </div>
-                <h3 className="text-xl font-bold text-white">
-                  Positive Mind Academy
-                </h3>
+           <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              {/* Logo Image */}
+              <div className="-ml-2 w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-white">
+                <img
+                  src="/logo.png"   // replace with your logo path
+                  alt="Positive Mind Academy Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                Empowering students with personalized learning experiences and
-                expert guidance to excel in their academic journey.
-              </p>
-              <div className="flex space-x-3">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-blue-900 text-xs font-bold">📍</span>
-                </div>
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-blue-900 text-xs font-bold">f</span>
-                </div>
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-blue-900 text-xs font-bold">📷</span>
-                </div>
-              </div>
+              <h3 className="text-xl font-bold text-white">
+                Positive Minds Academy
+              </h3>
             </div>
 
-            {/* Column 2: Contact Us */}
-            <div className="space-y-4">
-              <h4 className="text-lg font-bold text-white border-b border-white pb-2">
-                Contact Us
-              </h4>
-              <div className="space-y-3">
-                <div className="flex items-start space-x-3">
-                  <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center mt-0.5">
-                    <span className="text-white text-xs">📍</span>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">Address</p>
-                    <div className="text-gray-300 text-sm space-y-1">
-                      <p>Positive Minds Academy</p>
-                      <p>39 California Avenue, Suite #108</p>
-                      <p>Pleasanton, CA 94566</p>
-                    </div>
-                  </div>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Empowering students with personalized learning experiences and
+              expert guidance to excel in their academic journey.
+            </p>
+
+            {/* Social & Location Icons */}
+            <div className="flex space-x-3">
+              <a
+                href="https://www.google.com/maps/place/Positive+Minds+Academy/@37.6675922,-121.8615602,17z/data=!3m1!4b1!4m6!3m5!1s0x808fe9ac2f543e99:0x7cd74680980d06b7!8m2!3d37.6675922!4d-121.8615602!16s%2Fg%2F11srkqgp6h?entry=ttu&g_ep=EgoyMDI1MDUwMy4wIKXMDSoASAFQAw%3D%3D" // replace with Google Maps link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+                aria-label="Location"
+              >
+                <MapPin className="w-4 h-4 text-blue-900" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/pmaachievingexcellencetogether" // replace with FB link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4 text-blue-900" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/positive_minds_academy/" // replace with Instagram link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4 text-blue-900" />
+              </a>
+            </div>
+                      </div>
+
+                    {/* Column 2: Contact Us */}
+          <div id="Contact-us"  className="space-y-4">
+            <h4 className="text-lg font-bold text-white border-b border-white pb-2">
+              Contact Us
+            </h4>
+            <div className="space-y-3">
+              {/* Address */}
+              <div className="flex items-start space-x-3">
+                <div className="w-5 h-5 text-blue-400 flex items-center justify-center mt-0.5">
+                  <MapPin className="w-5 h-5" />
                 </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs">📞</span>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">Phone</p>
-                    <a
-                      href="tel:+19252170673"
-                      className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
-                    >
-                      +1 (925) 217-0673
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-5 h-5 bg-blue-400 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs">✉</span>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">Email</p>
-                    <p className="text-gray-300 text-sm">
-                      sarmita@positivemindsacademy.com
-                    </p>
+                <div>
+                  <p className="text-white font-semibold text-sm">Address</p>
+                  <div className="text-gray-300 text-sm space-y-1">
+                    <p>Positive Minds Academy</p>
+                    <p>39 California Avenue, Suite #108</p>
+                    <p>Pleasanton, CA 94566</p>
                   </div>
                 </div>
               </div>
+
+              {/* Phone */}
+              <div className="flex items-center space-x-3">
+                <div className="w-5 h-5 text-blue-400 flex items-center justify-center">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">Phone</p>
+                  <a
+                    href="tel:+19252170673"
+                    className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
+                  >
+                    +1 (925) 217-0673
+                  </a>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center space-x-3">
+                <div className="w-5 h-5 text-blue-400 flex items-center justify-center">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold text-sm">Email</p>
+                  <p className="text-gray-300 text-sm">
+                    sarmita@positivemindsacademy.com
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+
 
             {/* Column 3: Our Programs */}
             <div className="space-y-4">
